@@ -1,0 +1,2612 @@
+{
+  "name": "AquaGuardian-action",
+  "type": "action",
+  "counts": {
+    "actions": 5,
+    "intents": 2,
+    "entities": 8,
+    "data_types": 0,
+    "collections": 0,
+    "global_variables": 0
+  },
+  "status": "Available",
+  "language": "en",
+  "skill_id": "2c3285b8-9948-403e-bf9d-788082f95fcc",
+  "workspace": {
+    "actions": [
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "digression_failure",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't confirm if you wanted to return to previous topic, let me connect to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "digression_failure",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Failed to confirm topic return"
+                }
+              ]
+            },
+            "next_step": "step_001"
+          },
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            },
+            "next_step": "step_004"
+          },
+          {
+            "step": "step_004",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_004",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Danger word detected"
+                }
+              ]
+            },
+            "next_step": "step_005"
+          },
+          {
+            "step": "step_005",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_005",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Profanity detected"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "Topic return failed",
+            "variable": "digression_failure",
+            "data_type": "any"
+          },
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          },
+          {
+            "title": "It seems this conversation would be best managed",
+            "variable": "step_004",
+            "data_type": "any"
+          },
+          {
+            "title": "Profanity - It seems this conversation",
+            "variable": "step_005",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "run_always",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "danger_word_detected",
+            "title": "Connect to agent",
+            "handlers": [],
+            "resolver": {
+              "type": "fallback"
+            },
+            "variable": "danger_word_detected_variable",
+            "condition": {
+              "entity": "danger_words"
+            },
+            "next_step": "profanity_detected"
+          },
+          {
+            "step": "profanity_detected",
+            "title": "Show warning",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please use appropriate language when interacting with the assistant."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "max_hits",
+                "handler": "max_hits_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "max_hits": 2,
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "profanity_detected_variable",
+            "condition": {
+              "entity": "profane_words"
+            }
+          }
+        ],
+        "title": "Trigger word detected",
+        "action": "run_always",
+        "boosts": [],
+        "handlers": [],
+        "variables": [
+          {
+            "title": "Profanity detected",
+            "variable": "danger_word_detected_variable",
+            "data_type": "any"
+          },
+          {
+            "title": "Profane word detected",
+            "variable": "profanity_detected_variable",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else"
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No matches",
+        "action": "anything_else",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_15317",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_783",
+            "output": {
+              "generic": [
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_988c2937ca6542678ad8fa5f3521b0ac~mv2.webp",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Dive in with us to explore Sustainable Development Goals . There are 17 Sustainable development Goals\n\n### **1. No Poverty**\n\n  - **Objective**: End poverty in all its forms everywhere.\n\n### **2. Zero Hunger**\n\n  - **Objective**: End hunger, achieve food security and improved nutrition, and promote sustainable agriculture.\n\n### **3. Good Health and Well-being**\n\n  -"
+                          },
+                          {
+                            "scalar": " **Objective**: Ensure healthy lives and promote well-being for all at all ages.\n\n### **4. Quality Education**\n\n  - **Objective**: Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.\n\n### **5. Gender Equality**\n\n  - **Objective**: Achieve gender equality and empower all women and girls.\n\n### **6. Clean Water and Sanitation**\n\n  -"
+                          },
+                          {
+                            "scalar": " **Objective**: Ensure availability and sustainable management of water and sanitation for all.\n\n### **7. Affordable and Clean Energy**\n\n  - **Objective**: Ensure access to affordable, reliable, sustainable, and modern energy for all.\n\n### **8. Decent Work and Economic Growth**\n\n  - **Objective**: Promote sustained, inclusive, and sustainable economic growth, full and productive employment,"
+                          },
+                          {
+                            "scalar": " and decent work for all.\n\n### **9. Industry, Innovation, and Infrastructure**\n\n  - **Objective**: Build resilient infrastructure, promote inclusive and sustainable industrialization, and foster innovation.\n\n### **10. Reduced Inequality**\n\n  - **Objective**: Reduce inequality within and among countries.\n\n### **11. Sustainable Cities and Communities**\n\n  -"
+                          },
+                          {
+                            "scalar": " **Objective**: Make cities and human settlements inclusive, safe, resilient, and sustainable.\n\n### **12. Responsible Consumption and Production**\n\n  - **Objective**: Ensure sustainable consumption and production patterns.\n\n### **13. Climate Action**\n\n  - **Objective**: Take urgent action to combat climate change and its impacts.\n\n### **14. Life Below Water**\n\n  -"
+                          },
+                          {
+                            "scalar": " **Objective**: Conserve and sustainably use the oceans, seas, and marine resources for sustainable development.\n\n### **15. Life on Land**\n\n  - **Objective**: Protect, restore, and promote sustainable use of terrestrial ecosystems, manage forests sustainably, combat desertification, halt and reverse land degradation, and halt biodiversity loss.\n\n### **16. Peace, Justice,"
+                          },
+                          {
+                            "scalar": " and Strong Institutions**\n\n  - **Objective**: Promote peaceful and inclusive societies, provide access to justice for all, and build effective, accountable, and inclusive institutions at all levels.\n\n### **17. Partnerships for the Goals**\n\n  - **Objective**: Strengthen the means of implementation and revitalize the global partnership for sustainable development."
+                          },
+                          {
+                            "scalar": "\n\n<br />\n\n\n\n**OUT OF WHICH WE CHOOSE LIFE BELOW WATER**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_783",
+            "next_step": "step_806"
+          },
+          {
+            "step": "step_806",
+            "output": {
+              "generic": [
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_a7e49e52cb724e30b3c5b17ea2e7eab6~mv2.png",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "\"Hello and welcome to Aqua, your guide to understanding and preserving life below water! 🌊 Dive in with us to explore Sustainable Development Goal 14, which focuses on conserving our oceans and marine resources. From learning about marine life to understanding the importance of clean seas, Aqua is here to educate and inspire you about the wonders of our underwater world."
+                          },
+                          {
+                            "scalar": " Let's make waves in protecting our planet together!\""
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_76d74a22d8ce40f19bf885bd5cb48b2a~mv2.jpg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_806",
+            "next_step": "step_630"
+          },
+          {
+            "step": "step_630",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Tell me which topic do you want to explore more and dive into?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Oceans and Seas",
+                      "value": {
+                        "input": {
+                          "text": "Oceans and Seas"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Small islands development states",
+                      "value": {
+                        "input": {
+                          "text": "Small islands development states"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Sustainable tourism",
+                      "value": {
+                        "input": {
+                          "text": "Sustainable tourism"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_15705",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_630",
+            "next_step": "step_811"
+          },
+          {
+            "step": "step_811",
+            "output": {
+              "generic": [
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_2f5755cd1cbb4bf7b2331ab01efd81bc~mv2.png",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image",
+                  "repeat_on_reprompt": true
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "An ocean is a continuous body of salt water that is contained in an enormous basin on Earth’s surface. The major oceans and their marginal seas cover nearly 71 percent of Earth’s surface, with an average depth of 3,688 metres (12,100 feet)."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": true
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Aquatic life",
+                      "value": {
+                        "input": {
+                          "text": "Aquatic life"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Distribution of oceans",
+                      "value": {
+                        "input": {
+                          "text": "Distribution of oceans"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Pollution impact on Aquatic life",
+                      "value": {
+                        "input": {
+                          "text": "Pollution impact on Aquatic life"
+                        }
+                      }
+                    },
+                    {
+                      "label": "What can we do?",
+                      "value": {
+                        "input": {
+                          "text": "What can we do?"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_11042",
+              "max_tries": 3,
+              "allow_topic_switch": false,
+              "collect_verbatim_response": false,
+              "response_collection_behavior": "optionally_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_811",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_630"
+                },
+                {
+                  "value": "Oceans and Seas",
+                  "from_entity": "entity_15705"
+                }
+              ]
+            },
+            "next_step": "step_252"
+          },
+          {
+            "step": "step_252",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**Aquatic life**  refers to all living organisms that inhabit water environments, including oceans, seas, rivers, lakes, and wetlands. This diverse and vibrant category of life forms is essential to Earth's ecological balance and includes a wide range of species, each adapted to thrive in their specific aquatic habitats."
+                          },
+                          {
+                            "scalar": "\n\n### **Marine Life**\nMarine life encompasses organisms that live in the world's oceans and seas. It includes:\n\n\n  - **Fish**: The most diverse group in the ocean, ranging from tiny anchovies to massive sharks. Fish are typically equipped with gills for extracting oxygen from water and fins for navigation.\n  - **Mammals**: Marine mammals such as whales, dolphins, and seals are warm-"
+                          },
+                          {
+                            "scalar": "blooded and breathe air. They have adapted to aquatic life with streamlined bodies, flippers, and blubber for insulation.\n  - **Invertebrates**: This group includes jellyfish, octopuses, and crustaceans. Many invertebrates are important in marine ecosystems for their roles in the food web, from predators to scavengers.\n  - **Corals and Anemones**: These animals often form complex,"
+                          },
+                          {
+                            "scalar": " vibrant ecosystems such as coral reefs. Corals have a symbiotic relationship with algae, which helps them obtain nutrients through photosynthesis.\n  - **Plankton**: Plankton are microscopic organisms that drift with ocean currents. They include phytoplankton (plant-like) and zooplankton (animal-like) and form the base of the marine food web."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_99bb04f3d1ea4b52ae4a7287f428804d~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_252",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_811"
+                },
+                {
+                  "value": "Aquatic life",
+                  "from_entity": "entity_11042"
+                }
+              ]
+            },
+            "next_step": "step_938"
+          },
+          {
+            "step": "step_938",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Earth possesses one “world ocean.” However, those conducting oceanic research generally recognize the existence of five major oceans: the [Pacific](https://www.britannica.com/place/Pacific-Ocean), [Atlantic](https://www.britannica.com/place/Atlantic-Ocean), [Indian](https://www.britannica.com/place/Indian-Ocean), [Southern](https://www.britannica.com/place/Southern-Ocean),"
+                          },
+                          {
+                            "scalar": " and [Arctic](https://www.britannica.com/place/Arctic-Ocean) oceans. Arbitrary boundaries separate these bodies of water, but they are largely defined by the [continents](https://www.britannica.com/science/continent) that frame them. In the Southern Hemisphere, however, 60° [S](https://www.britannica.com/science/salinity) latitude,"
+                          },
+                          {
+                            "scalar": " which corresponds to the approximate position of the [Antarctic Circumpolar Current](https://www.britannica.com/place/Antarctic-Circumpolar-Current), separates the Southern Ocean from the southern portions of the Pacific, Atlantic, and Indian oceans. Many subdivisions can be made to distinguish the limits of seas and [gulfs](https://www.britannica.com/science/gulf-coastal-"
+                          },
+                          {
+                            "scalar": "feature) that have historical, political, and sometimes ecological significance. However, water properties, [ocean currents](https://www.britannica.com/science/ocean-current), and biological populations are not constrained by these boundaries."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_c075f307825c43669e2bd99b4ce56265~mv2.jpg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_938",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_811"
+                },
+                {
+                  "value": "Distribution of oceans",
+                  "from_entity": "entity_11042"
+                }
+              ]
+            },
+            "next_step": "step_199"
+          },
+          {
+            "step": "step_199",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Pollution affects aquatic life in several detrimental ways:\n\n\n  1. **Toxic Contaminants**: Chemicals like heavy metals and pesticides can poison aquatic organisms, leading to health issues, reproductive problems, and even death. For example, mercury contamination can accumulate in fish, affecting their health and posing risks to humans who consume them.\n  2."
+                          },
+                          {
+                            "scalar": " **Plastic Debris**: Plastics can entangle marine animals or be ingested, causing physical injuries, blockages, and toxicity. Marine creatures like sea turtles and seabirds often mistake plastics for food, which can be fatal.\n  3. **Nutrient Overload**: Excess nutrients from fertilizers and sewage lead to algal blooms, which deplete oxygen in the water,"
+                          },
+                          {
+                            "scalar": " creating \"dead zones\" where fish and other organisms cannot survive. These blooms can also produce toxins harmful to aquatic life and humans.\n  4. **Oil Spills**: Oil spills coat marine life and habitats, causing damage to animals’ skin, feathers, and fur, and contaminating their food sources. This can lead to long-term ecological damage and severe health impacts on wildlife.\n  5."
+                          },
+                          {
+                            "scalar": " **Thermal Pollution**: Warm water discharged from industrial processes can increase water temperatures, reducing oxygen levels and affecting species that are sensitive to temperature changes, disrupting their breeding and survival."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_51f4ee67b13c4509b6c80416cb451c5c~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_199",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_811"
+                },
+                {
+                  "value": "Pollution impact on Aquatic life",
+                  "from_entity": "entity_11042"
+                }
+              ]
+            },
+            "next_step": "step_544"
+          },
+          {
+            "step": "step_544",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "As individuals, there are several impactful actions we can take to help protect our oceans:\n\n### 1. **Reduce Plastic Use**\n\n  - **Action**: Minimize single-use plastics by opting for reusable bags, bottles, and containers. Avoid products with excessive plastic packaging.\n  - **Impact**: Reduces the amount of plastic waste entering oceans, which can harm marine life.\n\n### 2."
+                          },
+                          {
+                            "scalar": " **Proper Waste Disposal**\n\n  - **Action**: Dispose of waste properly by recycling and composting. Avoid littering and ensure hazardous materials are disposed of correctly.\n  - **Impact**: Prevents pollution from reaching waterways and oceans.\n\n### 3. **Support Sustainable Seafood**\n\n  - **Action**: Choose seafood that is sustainably sourced."
+                          },
+                          {
+                            "scalar": " Look for certifications from organizations like the Marine Stewardship Council (MSC) or the Aquaculture Stewardship Council (ASC).\n  - **Impact**: Supports responsible fishing practices and helps maintain healthy fish populations.\n\n### 4. **Participate in Clean-Up Efforts**\n\n  - **Action**: Join or organize beach clean-ups and community clean-up events."
+                          },
+                          {
+                            "scalar": " Remove trash from coastal areas and waterways.\n  - **Impact**: Directly reduces pollution and helps protect marine habitats.\n\n### 5. **Advocate for Policy Change**\n\n  - **Action**: Support and advocate for policies and legislation that protect ocean environments, such as plastic bans, marine protected areas, and regulations on industrial discharges.\n  -"
+                          },
+                          {
+                            "scalar": " **Impact**: Contributes to broader efforts to address ocean pollution and conservation at a systemic level.\n\n### 6. **Educate and Raise Awareness**\n\n  - **Action**: Educate others about ocean conservation and share information about the importance of protecting marine environments. Use social media and community platforms to spread awareness.\n  -"
+                          },
+                          {
+                            "scalar": " **Impact**: Increases public knowledge and encourages more people to take action.\n\n### 7. **Reduce Carbon Footprint**\n\n  - **Action**: Reduce energy consumption, use public transportation, and support renewable energy sources to mitigate climate change effects on oceans.\n  - **Impact**: Helps combat ocean acidification and temperature rise due to climate change.\n\n### 8."
+                          },
+                          {
+                            "scalar": " **Support Marine Conservation Organizations**\n\n  - **Action**: Donate to or volunteer with organizations that focus on marine conservation, research, and protection efforts.\n  - **Impact**: Provides financial and volunteer support to organizations working to protect oceans and marine life.\n\n### 9. **Be Mindful of Water Usage**\n\n  - **Action**: Use water efficiently to reduce runoff and pollution."
+                          },
+                          {
+                            "scalar": " Avoid using chemicals and pesticides that can end up in waterways.\n  - **Impact**: Reduces the amount of pollutants entering the ocean from household and agricultural runoff."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_330a53742be14583876fb86c763fb57f~mv2.jpg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_544",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_811"
+                },
+                {
+                  "value": "What can we do?",
+                  "from_entity": "entity_11042"
+                }
+              ]
+            },
+            "next_step": "step_449"
+          },
+          {
+            "step": "step_449",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "## **About Small Island Developing States**\n> ## ***Small Island Developing States (SIDS) are a distinct group of 39 States and 18 Associate Members of United Nations regional commissions that face unique social, economic and environmental vulnerabilities.***\n\n\nThe three geographical regions in which SIDS are located are: the Caribbean, the Pacific, and the Atlantic,"
+                          },
+                          {
+                            "scalar": " Indian Ocean and South China Sea (AIS).\n\nSIDS were recognized as a special case both for their environment and development at the [1992 United Nations Conference on Environment and Development](https://sustainabledevelopment.un.org/milestones/unced) held in Rio de Janeiro, Brazil.\n\nThe aggregate population of all the SIDS is 65 million, slightly less than 1% of the world’s population,"
+                          },
+                          {
+                            "scalar": " yet this group faces unique social, economic, and environmental challenges.\n\nSIDS face a host of challenges including for many, their remote geography. As a result, many SIDS face high import and export costs for goods as well as irregular international traffic volumes. Yet, they must rely on external markets for many goods due to the narrow resource base.\n\nFor SIDS,"
+                          },
+                          {
+                            "scalar": " the Exclusive Economic Zone (EEZ)—the ocean under their control—is, on average, 28 times the country’s land mass. Thus, for many SIDS the majority of the natural resources they have access to comes from the ocean. Factors like small population size, remoteness from international markets, high transportation costs,"
+                          },
+                          {
+                            "scalar": " vulnerability to exogenous economic shocks and fragile land and marine ecosystems make SIDS particularly vulnerable to biodiversity loss and climate change because they lack economic alternatives.\n\nClimate change has a very tangible impact on SIDS. Hurricanes Harvey, Irma, Maria, and Nate turned the 2017 tropical cyclone season into one of the deadliest and most devastating of all time,"
+                          },
+                          {
+                            "scalar": " destroying communications, energy and transport infrastructure, homes, health facilities and schools. Slow onset events such as sea level rise pose an existential threat to small island communities, requiring drastic measures such as relocation of populations, and the related challenges this poses. These challenges are compounded by limited institutional capacity,"
+                          },
+                          {
+                            "scalar": " scarce financial resources and a high degree of vulnerability to systemic shocks.\n\nBiodiversity is an important issue for the livelihood of many SIDS, as industries like tourism and fisheries can constitute over half of the GDP of small island economies. However,"
+                          },
+                          {
+                            "scalar": " the importance of these natural resources extends beyond the economy; biodiversity holds aesthetic and spiritual value for many island communities. For centuries, these communities have drawn benefits from biodiversity in the form of food supply, clean water, reduced beach erosion, soil and sand formation, and protection from storm surges."
+                          },
+                          {
+                            "scalar": "\n\nStrong biodiversity not only generates revenue through industries for SIDS, it also helps prevent the incurrence of additional costs that can result from climate change, soil erosion, pollution, floods, natural disasters, and other destructive phenomena.\n\nAt the regional level, SIDS are also supported by inter-governmental organizations, primarily the [Caribbean Community (CARICOM)](http://www."
+                          },
+                          {
+                            "scalar": "caricom.org/), the [Pacific Islands Forum (PIF)](http://www.forumsec.org/) and the [Indian Ocean Commission (IOC)](http://www.commissionoceanindien.org/accueil/)."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_ddd472c3779d45bca1b0b81b16eb70f2~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_449",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_630"
+                },
+                {
+                  "value": "Small islands development states",
+                  "from_entity": "entity_15705"
+                }
+              ]
+            },
+            "next_step": "step_550"
+          },
+          {
+            "step": "step_550",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sustainable tourism, from the perspective of **Life Below Water** (Sustainable Development Goal 14), focuses on minimizing the negative impacts of tourism on marine environments while maximizing the benefits for local communities and ecosystems. Here's a brief description:"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_972a6b0ff26a414799fbfec6977752e5~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "### 1. **Minimizing Environmental Impact**\n\n  - **Action**: Implement practices to reduce pollution, waste, and habitat disruption caused by tourism activities. This includes controlling boat traffic, managing waste responsibly, and avoiding damage to sensitive marine areas like coral reefs.\n  - **Impact**: Helps preserve marine ecosystems, prevents pollution,"
+                          },
+                          {
+                            "scalar": " and protects wildlife from disturbances.\n\n### 2. **Supporting Conservation Efforts**\n\n  - **Action**: Promote and participate in eco-friendly tourism activities that support marine conservation initiatives. Choose tour operators and destinations that invest in marine protection and conservation.\n  - **Impact**: Provides funding and awareness for conservation projects,"
+                          },
+                          {
+                            "scalar": " helping to safeguard marine life and habitats.\n\n### 3. **Educating Tourists**\n\n  - **Action**: Offer educational programs and resources to tourists about marine ecosystems, local wildlife, and sustainable practices. Encourage responsible behavior such as not touching or disturbing marine animals and avoiding the collection of marine specimens.\n  - **Impact**: Raises awareness among visitors,"
+                          },
+                          {
+                            "scalar": " fostering a greater appreciation for marine environments and encouraging responsible behavior.\n\n### 4. **Promoting Local Benefits**\n\n  - **Action**: Support local economies by choosing tourism services and products provided by local communities. Ensure that tourism revenues contribute to the well-being of local people and support sustainable development.\n  -"
+                          },
+                          {
+                            "scalar": " **Impact**: Enhances economic opportunities for local communities and encourages them to engage in and support marine conservation efforts.\n\n### 5. **Regulating Tourism Activities**\n\n  - **Action**: Implement and adhere to regulations that limit the number of visitors to sensitive marine areas, control activities like snorkeling and diving,"
+                          },
+                          {
+                            "scalar": " and ensure that tourism activities do not harm marine life or habitats.\n  - **Impact**: Reduces overexploitation and stress on marine ecosystems, helping to maintain their health and resilience.\n\nSustainable tourism aims to balance the enjoyment of marine environments with their preservation, ensuring that these valuable ecosystems remain intact for future generations."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_550",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_630"
+                },
+                {
+                  "value": "Sustainable tourism",
+                  "from_entity": "entity_15705"
+                }
+              ]
+            },
+            "next_step": "step_897"
+          },
+          {
+            "step": "step_897",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Islands you want to explore as a part of sustainable tourism to travel !!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Lakshadweep",
+                      "value": {
+                        "input": {
+                          "text": "Lakshadweep"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Andaman and Nicobar",
+                      "value": {
+                        "input": {
+                          "text": "Andaman and Nicobar"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_18214",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_897",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_630"
+                },
+                {
+                  "value": "Sustainable tourism",
+                  "from_entity": "entity_15705"
+                }
+              ]
+            },
+            "next_step": "step_491"
+          },
+          {
+            "step": "step_491",
+            "output": {
+              "generic": [
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_e2d213bbf29b4128b6c5e9c873300da6~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Lakshadweep, the group of 36 islands is known for its exotic and sun-kissed beaches and lush green landscape. The name Lakshadweep in Malayalam and Sanskrit means ‘a hundred thousand islands’. ”\n\nIndia’s smallest Union Territory Lakshadweep is an archipelago consisting of 36 islands with an area of 32 sq km. It is a uni-district Union Territory and comprises of 12 atolls, three reefs,"
+                          },
+                          {
+                            "scalar": " five submerged banks and ten inhabited islands. The islands have a total area of 32 sq km. The capital is Kavaratti and it is also the principal town of the UT. All Islands are 220 to 440 km away from the coastal city of Kochi in Kerala, in the emerald Arabian Sea. The natural landscapes, the sandy beaches,"
+                          },
+                          {
+                            "scalar": " abundance of flora and fauna and the absence of a rushed lifestyle enhance the mystique of Lakshadweep.\n\nOnly BSNL and Airtel provides telecommunication services to Lakshadweep Islands. BSNL provides connectivity in all 10 inhabited islands where as Airtel provides connectivity to Kavaratti and Agatti islands.\n\n##### **The entry to Lakshadweep islands is restricted."
+                          },
+                          {
+                            "scalar": " One requires an entry permit issued by Lakshadweep Administration to visit these islands.**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "##### [**OFFICAL GOVERNMENT TOURISM link**](https://lakshadweep.gov.in/)\nThe marine explorations , sports and adventure Lakshadweep provide :"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Underwater dive/Suba dive",
+                      "value": {
+                        "input": {
+                          "text": "Underwater dive/Suba dive"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Surfing",
+                      "value": {
+                        "input": {
+                          "text": "Surfing"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Paragliding",
+                      "value": {
+                        "input": {
+                          "text": "Paragliding"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_25832",
+              "max_tries": 3,
+              "allow_topic_switch": false,
+              "collect_verbatim_response": false,
+              "response_collection_behavior": "optionally_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_491",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_897"
+                },
+                {
+                  "value": "Lakshadweep",
+                  "from_entity": "entity_18214"
+                }
+              ]
+            },
+            "next_step": "step_901"
+          },
+          {
+            "step": "step_901",
+            "output": {
+              "generic": [
+                {
+                  "title": "Suba diving",
+                  "source": "https://static.wixstatic.com/media/0189c9_14aabd844523412e97c482755044387c~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "This is one of the most popular adventure to do in islands. ",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_901",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_491"
+                },
+                {
+                  "value": "Underwater dive/Suba dive",
+                  "from_entity": "entity_25832"
+                }
+              ]
+            },
+            "next_step": "step_430"
+          },
+          {
+            "step": "step_430",
+            "output": {
+              "generic": [
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_cdf0a6839cf6465cbb397f8d7bd4b761~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_430",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_491"
+                },
+                {
+                  "value": "Paragliding",
+                  "from_entity": "entity_25832"
+                }
+              ]
+            },
+            "next_step": "step_378"
+          },
+          {
+            "step": "step_378",
+            "output": {
+              "generic": [
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_c7cbcd46d3f24211bcd559e1f66b0e35~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_378",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_491"
+                },
+                {
+                  "value": "Surfing",
+                  "from_entity": "entity_25832"
+                }
+              ]
+            },
+            "next_step": "step_810"
+          },
+          {
+            "step": "step_810",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "The **Andaman and Nicobar Islands** is a [union territory](https://en.wikipedia.org/wiki/Union_territory) of [India](https://en.wikipedia.org/wiki/India). It consists of 836 islands (of which only 31 are inhabited) grouped into two island groups: the northern [Andaman Islands](https://en.wikipedia.org/wiki/Andaman_Islands) and the southern [Nicobar Islands](https://en.wikipedia."
+                          },
+                          {
+                            "scalar": "org/wiki/Nicobar_Islands), separated by a 150 km (93 mi) wide [channel](https://en.wikipedia.org/wiki/Ten_Degree_Channel). [Port Blair](https://en.wikipedia.org/wiki/Port_Blair) is the capital and largest city of the territory, located about 1,190 km (740 mi) from [Chennai](https://en.wikipedia.org/wiki/Chennai) and 1,255 km (780 mi) from [Kolkata](https://en.wikipedia."
+                          },
+                          {
+                            "scalar": "org/wiki/Kolkata) in mainland India. The islands are sandwiched between the [Bay of Bengal](https://en.wikipedia.org/wiki/Bay_of_Bengal) to the west and the [Andaman Sea](https://en.wikipedia.org/wiki/Andaman_Sea) to the east with the northern-most point located 901 km (560 mi) from the mouth of [Hooghly river](https://en.wikipedia.org/wiki/Hooghly_river). [Indira Point](https://en.wikipedia."
+                          },
+                          {
+                            "scalar": "org/wiki/Indira_Point) at 6°45’10″N and 93°49’36″E at the southern tip of [Great Nicobar](https://en.wikipedia.org/wiki/Great_Nicobar) is the southernmost point of India."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_758e065b08b24681be435aa3eeb1aece~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "The territory shares [maritime borders](https://en.wikipedia.org/wiki/Maritime_border) with [Indonesia](https://en.wikipedia.org/wiki/Indonesia) located about 165 km (103 mi) to the south, [Myanmar](https://en.wikipedia.org/wiki/Myanmar) located 280 km (170 mi) to the north-east and [Thailand](https://en.wikipedia.org/wiki/Thailand) located 650 km (400 mi) to the south-east."
+                          },
+                          {
+                            "scalar": " The islands occupy a total land area of approximately 8,249 km2 (3,185 sq mi) with a population of 380,581 as per the [2011 census](https://en.wikipedia.org/wiki/2011_Census_of_India). The territory is divided into three districts: [Nicobar](https://en.wikipedia.org/wiki/Nicobar_District), [South Andaman](https://en.wikipedia.org/wiki/South_Andaman_district),"
+                          },
+                          {
+                            "scalar": " and [North and Middle Andaman](https://en.wikipedia.org/wiki/North_and_Middle_Andaman_district) with the capitals at [Car Nicobar](https://en.wikipedia.org/wiki/Car_Nicobar), Port Blair and [Mayabunder](https://en.wikipedia.org/wiki/Mayabunder) respectively."
+                          },
+                          {
+                            "scalar": "\n\nGenetic and cultural studies suggest that the indigenous Andamanese people may have been isolated from other populations during the [Middle Paleolithic](https://en.wikipedia.org/wiki/Middle_Paleolithic) era, more than 30,000 years ago. Archeological evidence of civilization has been dated back to 2,200 years. In the 11th century CE, [Cholas](https://en.wikipedia.org/wiki/Cholas),"
+                          },
+                          {
+                            "scalar": " one of the [three Tamil kingdoms](https://en.wikipedia.org/wiki/Three_Crowned_Kings), used the islands as a [naval base](https://en.wikipedia.org/wiki/Naval_base) to launch expeditions in South East Asia. The [Danish](https://en.wikipedia.org/wiki/Danish_East_India_Company) were the first Europeans to arrive on the islands in 1755. The islands became part of the [British Raj](https://en."
+                          },
+                          {
+                            "scalar": "wikipedia.org/wiki/British_Raj) in 1868. During the [Second World War](https://en.wikipedia.org/wiki/Second_World_War), the islands were invaded by the [Japanese Empire](https://en.wikipedia.org/wiki/Japanese_Empire). After [Indian Independence](https://en.wikipedia.org/wiki/Indian_Independence_Act_1947) in 1947,"
+                          },
+                          {
+                            "scalar": " the region became a province and later a union territory after the adoption of the [Constitution of India](https://en.wikipedia.org/wiki/Constitution_of_India) in 1950.\n\nThe islands host the [Andaman and Nicobar Command](https://en.wikipedia.org/wiki/Andaman_and_Nicobar_Command), the only geographical command operated jointly by the three major wings of the [Indian Armed Forces](https://en."
+                          },
+                          {
+                            "scalar": "wikipedia.org/wiki/Indian_Armed_Forces): the [Army](https://en.wikipedia.org/wiki/Indian_Army), the [Air Force](https://en.wikipedia.org/wiki/Indian_Air_Force) and the [Navy](https://en.wikipedia.org/wiki/Indian_Navy). While [Hindi](https://en.wikipedia.org/wiki/Hindi) and English are the official languages, the major spoken languages include [Bengali](https://en.wikipedia."
+                          },
+                          {
+                            "scalar": "org/wiki/Bengali_language), [Tamil](https://en.wikipedia.org/wiki/Tamil_language) and [Telugu](https://en.wikipedia.org/wiki/Telugu_language). Indigenous people speak any of the [Andamanese](https://en.wikipedia.org/wiki/Andamanese_languages) or [Nicobarese](https://en.wikipedia.org/wiki/Nicobarese_languages) family of languages. [Hinduism](https://en.wikipedia."
+                          },
+                          {
+                            "scalar": "org/wiki/Hinduism) is the majority religion in the union territory, with a significant Christian minority. The islands are also home to the [Sentinelese people](https://en.wikipedia.org/wiki/Sentinelese_people), an [uncontacted tribe](https://en.wikipedia.org/wiki/Uncontacted_people).\n\n[OFFICAL GOVERNMENT TOURISUM link](https://www.andamantourism.gov.in/)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "The marine explorations , sports and adventure Andaman and Nicobar Island provide :"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Paragliding",
+                      "value": {
+                        "input": {
+                          "text": "Paragliding"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Boating",
+                      "value": {
+                        "input": {
+                          "text": "Boating"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Underwater dive/ Scuba dive",
+                      "value": {
+                        "input": {
+                          "text": "Underwater dive/ Scuba dive"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_14479",
+              "max_tries": 3,
+              "allow_topic_switch": false,
+              "collect_verbatim_response": false,
+              "response_collection_behavior": "optionally_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_810",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_897"
+                },
+                {
+                  "value": "Andaman and Nicobar",
+                  "from_entity": "entity_18214"
+                }
+              ]
+            },
+            "next_step": "step_632"
+          },
+          {
+            "step": "step_632",
+            "output": {
+              "generic": [
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_0c6101d5072b4fac8b48d50bba2955e2~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_46179c061d6b4364a7ec5827c6db579c~mv2.png",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_632",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_810"
+                },
+                {
+                  "value": "Underwater dive/ Scuba dive",
+                  "from_entity": "entity_14479"
+                }
+              ]
+            },
+            "next_step": "step_311"
+          },
+          {
+            "step": "step_311",
+            "output": {
+              "generic": [
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_34559bf87f9e4a759c99a74e43690504~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_311",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_810"
+                },
+                {
+                  "value": "Paragliding",
+                  "from_entity": "entity_14479"
+                }
+              ]
+            },
+            "next_step": "step_665"
+          },
+          {
+            "step": "step_665",
+            "output": {
+              "generic": [
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_d2f38a317d8345f0a5001f8da6ea1674~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_3b78a9f23d9d45a6a11deaa2240cb68c~mv2.jpeg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_665",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_810"
+                },
+                {
+                  "value": "Boating",
+                  "from_entity": "entity_14479"
+                }
+              ]
+            },
+            "next_step": "step_363"
+          },
+          {
+            "step": "step_363",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Do you want to known anything else?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_363",
+            "next_step": "step_439"
+          },
+          {
+            "step": "step_439",
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_806"
+                },
+                {
+                  "variable": "step_630"
+                },
+                {
+                  "variable": "step_811"
+                },
+                {
+                  "variable": "step_252"
+                },
+                {
+                  "variable": "step_938"
+                },
+                {
+                  "variable": "step_199"
+                },
+                {
+                  "variable": "step_544"
+                },
+                {
+                  "variable": "step_449"
+                },
+                {
+                  "variable": "step_550"
+                },
+                {
+                  "variable": "step_897"
+                },
+                {
+                  "variable": "step_491"
+                },
+                {
+                  "variable": "step_901"
+                },
+                {
+                  "variable": "step_430"
+                },
+                {
+                  "variable": "step_378"
+                },
+                {
+                  "variable": "step_810"
+                },
+                {
+                  "variable": "step_632"
+                },
+                {
+                  "variable": "step_311"
+                },
+                {
+                  "variable": "step_665"
+                },
+                {
+                  "variable": "step_363"
+                }
+              ]
+            },
+            "variable": "step_439",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_363"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_835"
+          },
+          {
+            "step": "step_835",
+            "output": {
+              "generic": [
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/0189c9_6c2a919bf9f44e42b771b39a85a21449~mv2.png",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thank you for visiting **AQUA**. We appreciate your efforts and learning towards **SUSTAINABLE DEVELOPMENT GOAL .** \n\n**VISIT AGAIN!**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_835",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_363"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "HI",
+        "action": "action_15317",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_15317_intent_11358"
+        },
+        "variables": [
+          {
+            "title": "Pollution affects aquatic life in several detrimental ways: 1. *",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_199",
+            "data_type": "any"
+          },
+          {
+            "title": "**Aquatic life** refers to all living organisms that inhabit wat",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_252",
+            "data_type": "any"
+          },
+          {
+            "title": "",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_311",
+            "data_type": "any"
+          },
+          {
+            "title": "Do you want to known anything else?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_363",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_378",
+            "data_type": "any"
+          },
+          {
+            "title": "",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_430",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_439",
+            "data_type": "any"
+          },
+          {
+            "title": "## **About Small Island Developing States** > ## ***Small Island",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_449",
+            "data_type": "any"
+          },
+          {
+            "title": "Lakshadweep, the group of 36 islands is known for its exotic and",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_491",
+            "data_type": "any"
+          },
+          {
+            "title": "As individuals, there are several impactful actions we can take ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_544",
+            "data_type": "any"
+          },
+          {
+            "title": "Sustainable tourism, from the perspective of **Life Below Water*",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_550",
+            "data_type": "any"
+          },
+          {
+            "title": "Tell me which topic do you want to explore more and dive into?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_630",
+            "data_type": "any"
+          },
+          {
+            "title": "",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_632",
+            "data_type": "any"
+          },
+          {
+            "title": "",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_665",
+            "data_type": "any"
+          },
+          {
+            "title": "Dive in with us to explore Sustainable Development Goals . There",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_783",
+            "data_type": "any"
+          },
+          {
+            "title": "\"Hello and welcome to Aqua, your guide to understanding and pres",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_806",
+            "data_type": "any"
+          },
+          {
+            "title": "The **Andaman and Nicobar Islands** is a [union territory](https",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_810",
+            "data_type": "any"
+          },
+          {
+            "title": "An ocean is a continuous body of salt water that is contained in",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_811",
+            "data_type": "any"
+          },
+          {
+            "title": "Thank you for visiting **AQUA**. We appreciate your efforts and ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_835",
+            "data_type": "any"
+          },
+          {
+            "title": "Islands you want to explore as a part of sustainable tourism to ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_897",
+            "data_type": "any"
+          },
+          {
+            "title": "",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_901",
+            "data_type": "any"
+          },
+          {
+            "title": "Earth possesses one “world ocean.” However, those conducting oce",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_938",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      }
+    ],
+    "intents": [
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "I would like to speak to someone"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "Call agent"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      },
+      {
+        "intent": "action_15317_intent_11358",
+        "examples": [
+          {
+            "text": "What is sustainable development goal"
+          },
+          {
+            "text": "Tell me about life under water?"
+          },
+          {
+            "text": "Hello"
+          },
+          {
+            "text": "HI"
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity": "entity_14479",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Paragliding",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Boating",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Underwater dive/ Scuba dive",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "profane_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "entity_18214",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Andaman and Nicobar",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Lakshadweep",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_15705",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Oceans and Seas",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Sustainable tourism",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Small islands development states",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "danger_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "sys-yes-no",
+        "values": []
+      },
+      {
+        "entity": "entity_11042",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Pollution impact on Aquatic life",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Distribution of oceans",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "What can we do?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Aquatic life",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_25832",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Surfing",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Underwater dive/Suba dive",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Paragliding",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      },
+      "skill": {
+        "counts": {
+          "actions": 5,
+          "intents": 2,
+          "entities": 8,
+          "data_types": 0,
+          "collections": 0,
+          "global_variables": 0
+        }
+      }
+    },
+    "variables": [],
+    "data_types": [],
+    "collections": [],
+    "counterexamples": [],
+    "system_settings": {
+      "variable": {
+        "format": {
+          "time": {
+            "pattern": "short"
+          },
+          "currency": {
+            "fraction_digits": 2
+          }
+        }
+      },
+      "off_topic": {
+        "enabled": true
+      },
+      "auto_learn": {
+        "apply": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "enable_confirmation": true,
+          "confirmation_failure": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "I'm sorry, I did not catch that, please confirm."
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              }
+            ]
+          },
+          "confirmation_request": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "Do you want to continue with the previous topic: "
+                        },
+                        {
+                          "system_variable": "digressed_from"
+                        },
+                        {
+                          "scalar": "?"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              },
+              {
+                "options": [
+                  {
+                    "label": "Yes",
+                    "value": {
+                      "input": {
+                        "text": "Yes"
+                      }
+                    }
+                  },
+                  {
+                    "label": "No",
+                    "value": {
+                      "input": {
+                        "text": "No"
+                      }
+                    }
+                  }
+                ],
+                "response_type": "option",
+                "repeat_on_reprompt": true
+              }
+            ]
+          }
+        },
+        "max_tries": 3
+      },
+      "generative_ai": {
+        "slot_filling": {
+          "enabled": false
+        }
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above",
+        "use_connect_to_support_prompt": "Connect to support",
+        "single_answer_clarification_prompt": "Something else"
+      },
+      "search_routing": {
+        "target": "conversational_search"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false,
+    "language": "en"
+  },
+  "description": "created for assistant da3154ab-90a9-49ba-bdde-25b33aeea121",
+  "dialog_settings": {
+    "source_assistant": "e90badde-86bc-48eb-b6d6-e220b72b0eac"
+  },
+  "created": "2024-07-30T17:33:06.999Z",
+  "updated": "2024-07-30T17:33:06.999Z",
+  "snapshot": "1",
+  "assistant_id": "da3154ab-90a9-49ba-bdde-25b33aeea121",
+  "assistant_references": [
+    {
+      "name": "AquaGuardian",
+      "assistant_id": "e90badde-86bc-48eb-b6d6-e220b72b0eac",
+      "skill_reference": "actions skill"
+    }
+  ]
+}
